@@ -1,0 +1,339 @@
+/* Reset some basic elements */
+body, h1, h2, table {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Apply a font */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Basic page layout */
+body {
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text for readability */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Style the navigation bar */
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #004b85; /* Queens University Blue */
+    margin: 0 10px;
+    padding: 10px 15px;
+    background-color: #ffb61e; /* Queens University Gold */
+    border-radius: 5px; /* Slight rounding */
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #ffcb05; /* Lighter Gold */
+}
+
+/* Content styling */
+h1, h2 {
+    text-align: center;
+    color: #780002; /* Queens University Red */
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse; /* Remove gaps between table cells */
+    table-layout: fixed; /* Fixed table layout for equal column spacing */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Light grey border */
+    text-align: left;
+    word-wrap: break-word; /* Ensure content breaks nicely */
+}
+
+th {
+    background-color: #004b85; /* Queens University Blue */
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping for rows */
+}
+
+/* Centering the main content */
+#Average Monthly Rent, #all_rentals, #rental_groups {
+    max-width: 1200px; /* Maximum width of the content */
+    margin: auto;
+    padding: 20px;
+    background-color: #fafafa; /* Slightly off-white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Button styling */
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Rounded edges */
+    background-color: #780002; /* Queens University Red */
+    color: #fff;
+    cursor: pointer; /* Mouse cursor as pointer */
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #a00002; /* Darker Red */
+}
+
+/* Links in the table */
+a {
+    color: #004b85; /* Queens University Blue */
+    text-decoration: none;
+    padding: 3px 7px;
+    border-radius: 5px; /* Slight rounding */
+}
+
+a:hover {
+    background-color: #ffb61e; /* Queens University Gold */
+    color: white;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    /* Make table responsive on small screens */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    /*
+    Label the data
+    You could use a data-* attribute and pseudo-elements but for simplicity's sake, we're just going to show and hide the headers with CSS
+    */
+    /* td:nth-of-type(1):before { content: "ID"; }
+    td:nth-of-type(2):before { content: "Type"; }
+    td:nth-of-type(3):before { content: "Owner(s)"; }
+    td:nth-of-type(4):before { content: "Manager"; }
+    td:nth-of-type(5):before { content: "Rent"; }
+    td:nth-of-type(6):before { content: "Beds"; }
+    td:nth-of-type(7):before { content: "Baths"; }
+    td:nth-of-type(8):before { content: "Parking"; }
+    td:nth-of-type(9):before { content: "Laundry"; }
+    td:nth-of-type(10):before { content: "Accessible"; }
+    td:nth-of-type(11):before { content: "Listed"; } */
+}
+
+
+
+.tabcontent {
+    display: none; /* Hide all tab content by default */
+    padding: 20px;
+    margin-top: 20px; /* Add space between tabs and content */
+}
+
+/* Specifically target the active tab content */
+.tabcontent.active {
+    display: block; /* Only show the content of the active tab */
+}
+
+/* Style the tables within tab content */
+.tabcontent table {
+    width: 100%; /* Full width tables */
+    border-collapse: collapse; /* Collapse borders for a clean look */
+    margin-top: 20px; /* Add some space above the table */
+}
+
+.tabcontent th, .tabcontent td {
+    border: 1px solid #ddd; /* Light gray border for each cell */
+    text-align: left;
+    padding: 8px; /* Padding inside each cell */
+}
+
+/* Alternating row background for better readability */
+.tabcontent tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabcontent th {
+    background-color: #004b85; /* Queen's University blue for headers */
+    color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .tabcontent th, .tabcontent td {
+        padding: 4px; /* Reduce padding on small screens */
+    }
+}
+
+/* Style the tab container */
+.tab {
+    text-align: center; /* Center the tab buttons */
+    margin-bottom: 20px; /* Space below the tab */
+    display: flex; /* Flexbox layout for equal spacing */
+    flex-direction: row; /* Arrange buttons in a row */
+    justify-content: space-between; /* Space between buttons */
+    flex-wrap: wrap; /* Wrap buttons to the next line if needed */
+}
+
+/* Style the tab buttons */
+.tab button {
+    background-color: inherit; /* Buttons inherit background from parent */
+    border: 2px solid #004b85; /* Queens University Blue border */
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-right: 5px; /* Small gap between buttons */
+    transition: 0.3s; /* Smooth transition for hover effect */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 16px; /* Font size for buttons */
+    color: #004b85; /* Queens University Blue text */
+    background-color: #ffb61e; /* Queens University Gold background */
+}
+
+/* Slightly darken the button on hover */
+.tab button:hover {
+    background-color: #e0a917; /* Darker gold */
+}
+
+/* Highlight the active tab */
+.tab button.active {
+    background-color: #004b85; /* Queens University Blue */
+    color: #fff; /* White text for the active tab */
+    border-color: #004b85; /* Same border color as the background */
+}
+
+/* Last button does not need right margin */
+.tab button:last-child {
+    margin-right: 0;
+}
+
+/* Ensure that form submit buttons don't have an outline when focused for a clean look */
+.tab button:focus {
+    outline: none;
+}
+
+
+/* Style the cell to lay out its contents in a flex row */
+td.form-actions {
+    display: flex;
+    justify-content: start;
+    gap: 10px; /* Add some space between elements */
+}
+
+/* General style for buttons and links that act as buttons */
+.form-action-button {
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Specific style for the 'Update Preferences' form submit button */
+.form-action-button.submit {
+    background-color: #780002; /* Queens University Red */
+}
+
+.form-action-button.submit:hover {
+    background-color: #a00002; /* A darker shade of red for hover state */
+}
+
+/* Specific style for the 'View Details' link */
+.form-action-button.details {
+    background-color: #ffb61e; /* Queens University Gold */
+}
+
+.form-action-button.details:hover {
+    background-color: #e0a917; /* A darker shade of gold for hover state */
+}
+
+/* Additional styles for the search results section */
+.search-results {
+    margin-top: 30px;
+}
+
+.search-results h2 {
+    color: #004b85; /* Echoing the theme's color */
+    margin-bottom: 15px;
+}
+
+/* Styles for the search form itself, if needed */
+.search-form input[type="text"], .search-form input[type="submit"] {
+    padding: 10px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form input[type="submit"] {
+    cursor: pointer;
+    background-color: #ffb61e; /* Gold */
+    color: white;
+    border: none;
+}
+
+.search-form input[type="submit"]:hover {
+    background-color: #e0a917; /* A darker shade of gold */
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #004b85; /* Queens University Blue */
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-link:hover, .button-link:focus {
+    background-color: #002855; /* A darker blue for hover state */
+    color: #ffb61e; /* Gold color for text */
+    outline: none; /* Remove outline on focus */
+}
